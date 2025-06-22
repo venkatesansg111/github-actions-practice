@@ -1,0 +1,42 @@
+name: printing-date
+
+on: [push]
+
+jobs:
+  job1:
+     name: job1-print-date-on-ubuntu
+     runs-on: ubuntu-latest
+     steps:
+       -name: Step one
+        uses: actions/checkout@v2
+       -name: Step two
+	run: date
+  job2:
+     name: job2-print-date-on-windows
+     runs-on: windows-latest
+     steps:
+       -name: Step one
+	run: "Get-Date"
+       -name: Step two
+        run: |
+            write-host "Running from Windows"
+            write-output "Running from Windows"
+  job3:
+     name: job3-print-date-on-macos
+     runs-on: macos-latest
+     steps:
+       -name: Step one
+        run: date
+       -name: Step two
+        run: echo 'Running from MacOs'
+  job4:
+     name: job4-print-date-on-ubuntu
+     runs-on: ubuntu-latest
+     needs: [job1,job2,job3]
+     steps:
+       -name: Step one
+        run: date
+       -name: Step two
+        run: |
+            echo 'Running from Job4'
+            echo 'Printing multiline'
