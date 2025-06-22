@@ -9,6 +9,7 @@ jobs:
      steps:
        -name: Step one
         uses: actions/checkout@v2
+
        -name: Step two
 	run: date
   job2:
@@ -17,6 +18,7 @@ jobs:
      steps:
        -name: Step one
 	run: "Get-Date"
+
        -name: Step two
         run: |
             write-host "Running from Windows"
@@ -27,6 +29,7 @@ jobs:
      steps:
        -name: Step one
         run: date
+
        -name: Step two
         run: echo 'Running from MacOs'
   job4:
@@ -36,6 +39,7 @@ jobs:
      steps:
        -name: Step one
         run: date
+
        -name: Step two
         run: |
             echo 'Running from Job4'
